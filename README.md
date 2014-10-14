@@ -20,6 +20,47 @@ or add the following the your package.json file
 
 # Usage
 
+Create notifier instance:
+
+```JavaScript
+var dal; // voicemail data access layer instance
+var config; // voicemail config instance
+var notificationHelper = require('voicemail-notify')({
+  dal: dal,
+  config: config
+});
+var mailbox; // mailbox instance
+var message; // message instance
+
+var notifier = notificationHelper.create(mailbox, message);
+```
+
+For more information on voicemail data access layer, see [voicemail-data](http://github.com/asterisk/node-voicemail-data). For more information on voicemail config, see [voicemail-config](http://github.com/asterisk/node-voicemail-config)
+
+Inform system that a message is new:
+
+```JavaScript
+notifier.newMessage()
+  .then(function(counts) {
+    // counts.read for mailbox
+    // counts.unread for mailbox
+  })
+  .catch(function(err) {
+  });
+```
+
+Inform system that a message has been read:
+
+```JavaScript
+notifier.messageRead()
+  .then(function(counts) {
+    // counts.read for mailbox
+    // counts.unread for mailbox
+  })
+  .catch(function(err) {
+  });
+```
+
 # Development
 
 After cloning the git repository, run the following to install the module and all dev dependencies:
