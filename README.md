@@ -61,6 +61,18 @@ notifier.messageRead()
   });
 ```
 
+Inform system that a message has been deleted:
+
+```JavaScript
+notifier.messageDeleted()
+  .then(function(counts) {
+    // counts.read for mailbox
+    // counts.unread for mailbox
+  })
+  .catch(function(err) {
+  });
+```
+
 # Development
 
 After cloning the git repository, run the following to install the module and all dev dependencies:
