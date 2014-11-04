@@ -33,7 +33,6 @@ var mockeryOpts = {
   useCleanCache: true
 };
 
-
 /**
  * Returns a mock client.
  */
@@ -108,7 +107,7 @@ var getMockDal = function() {
   };
 };
 
-describe('mailbox', function() {
+describe('notify', function() {
 
   beforeEach(function(done) {
     mockery.enable(mockeryOpts);
