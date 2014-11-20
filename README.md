@@ -26,8 +26,9 @@ Create notifier instance:
 var dal; // voicemail data access layer instance
 var config; // voicemail config instance
 var notificationHelper = require('voicemail-notify')({
-  dal: dal,
-  config: config
+  dal: dal, // voicemail data access layer
+  config: config, // voicemail configuration
+  logger: logger // voicemail logging
 });
 var mailbox; // mailbox instance
 var message; // message instance

@@ -107,6 +107,24 @@ var getMockDal = function() {
   };
 };
 
+/**
+ * Returns a mock logger for testing.
+ */
+var getMockLogger = function() {
+  return {
+    child: function() {
+      return {
+        trace: function() {},
+        debug: function() {},
+        info: function() {},
+        warn: function() {},
+        error: function() {},
+        fatal: function() {}
+      };
+    }
+  };
+};
+
 describe('notify', function() {
 
   beforeEach(function(done) {
@@ -128,7 +146,8 @@ describe('notify', function() {
 
     var notify = require('../lib/notify.js')({
       config: getMockConfig(),
-      dal: getMockDal()
+      dal: getMockDal(),
+      logger: getMockLogger()
     });
     var mailbox = {mailboxName: 'my-mailbox', read: 1, unread: 1};
     var message = {read: true};
