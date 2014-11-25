@@ -1,6 +1,6 @@
 {
   "name": "voicemail-notify",
-  "version": "0.1.3",
+  "version": "0.1.4",
   "description": "Notification interface for Asterisk voicemail.",
   "main": "lib/notify.js",
   "private": true,
